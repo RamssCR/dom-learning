@@ -1,0 +1,155 @@
+:root {
+  --color-background: #0f141e;
+  --color-text: #ece7e7;
+  --color-text-soft: #b0b0b0;
+  --color-danger: #ff4d4d;
+  --color-primary: #4d00c0;
+  --color-primary-dark: #0f0126;
+  --color-success: #00a542;
+  --color-modal-background: #00000077;
+  --color-modal-card-background: #1d1d21;
+  --color-modal-card-border: #2c2c30;
+  --color-input-focus: #77777a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  list-style: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2.5em 7em;
+}
+
+.container {
+  width: 100%;
+  max-width: 40em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+
+.container .title {
+  font-size: 2.5em;
+  font-weight: 500;
+  text-align: center;
+}
+
+.container .todo-controls {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+}
+
+.container .todo-controls .todo-input {
+  width: 100%;
+  padding: 0.5em 0.7em;
+  border: 1px solid var(--color-modal-card-border);
+  border-radius: 0.3em;
+  color: var(--color-text);
+  background-color: var(--color-modal-card-background);
+}
+
+.container .todo-controls .todo-input:focus {
+  outline: 3px solid var(--color-input-focus);
+}
+
+.container .todo-controls .add-todo-button {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.3em;
+  background-color: var(--color-text);
+  color: var(--color-background);
+  font-weight: 500;
+  transition: 200ms;
+}
+
+.container .todo-controls .add-todo-button:hover {
+  filter: opacity(0.8);
+  cursor: pointer;
+}
+
+.container .todo-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+}
+
+.container .todo-list .todo-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+  background-color: var(--color-modal-card-background);
+  border: 1px solid var(--color-modal-card-border);
+  border-radius: 0.3em;
+}
+
+.container .todo-list .todo-item .not-completed {
+  font-weight: 500;
+  background-color: var(--color-modal-card-border);
+  transition: 200ms;
+  border-radius: 0.3em;
+  color: var(--color-text);
+  padding: 0.4em 0.8em;
+  font-size: 0.9rem;
+  border: none;
+}
+
+.container .todo-list .todo-item .not-completed:hover {
+  filter: opacity(0.8);
+  cursor: pointer;
+}
+
+.container .todo-list .todo-item .completed {
+  font-weight: 500;
+  background-color: var(--color-success);
+  transition: 200ms;
+  border-radius: 0.3em;
+  color: var(--color-text);
+  padding: 0.4em 0.8em;
+  font-size: 0.9rem;
+  border: none;
+}
+
+.container .todo-list .todo-item .completed:hover {
+  filter: opacity(0.8);
+  cursor: pointer;
+}
+
+.container .todo-list .todo-item .delete {
+  padding: 0.4em 0.8em;
+  border: none;
+  border-radius: 0.3em;
+  background-color: var(--color-danger);
+  color: var(--color-text);
+  font-weight: 500;
+  transition: 200ms;
+}
+
+.container .todo-list .todo-item .delete:hover {
+  filter: opacity(0.8);
+  cursor: pointer;
+}

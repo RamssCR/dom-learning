@@ -1,0 +1,10 @@
+/* MutationObserver: Exercise 1 */
+.toggling {
+  cursor: pointer;
+  font-size: 5em;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.toggling:hover {
+  transform: scale(1.05);
+}

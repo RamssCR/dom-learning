@@ -1,0 +1,23 @@
+.box {
+  padding: 2rem;
+  border: 1px solid var(--color-modal-card-background);
+  margin: 1rem 0;
+}
+
+#grandparent { background-color: #f3e5f5; }
+#parent { background-color: #c393d8;}
+#child {
+  background-color: #ab47dc;
+  cursor: pointer;
+}
+
+.log {
+  font-family: monospace;
+  margin-top: 2rem;
+  background-color: var(--color-modal-card-background);
+  padding: 1rem;
+  border-radius: 0.3rem;
+  height: 200px;
+  width: 300px;
+  overflow: auto;
+}
