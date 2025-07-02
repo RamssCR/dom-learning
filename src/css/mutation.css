@@ -8,3 +8,56 @@
 .toggling:hover {
   transform: scale(1.05);
 }
+
+/* MutationObserver: Exercise 2 */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  margin-bottom: 2em;
+  width: fit-content;
+}
+
+.flex .add-container {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.3s ease-in-out;
+}
+
+.flex .add-container:hover {
+  filter: opacity(0.8);
+}
+
+.flex .container-count {
+  font-size: 1.5em;
+  color: var(--color-text-soft);
+}
+
+.dynamic-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(230px, 1fr));
+  gap: 1em;
+}
+
+.sample-container {
+  background-color: var(--color-modal-card-background);
+  border: 1px solid var(--color-modal-card-border);
+  padding: 1em;
+  border-radius: 0.5em;
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+  height: 210px;
+}

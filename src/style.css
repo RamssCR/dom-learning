@@ -1,5 +1,5 @@
 :root {
-  --color-background: #0f141e;
+  --color-background: #171717;
   --color-text: #ece7e7;
   --color-text-soft: #b0b0b0;
   --color-danger: #ff4d4d;
@@ -38,52 +38,80 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.flex {
-  display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 1.5em;
-  margin-bottom: 2em;
-  width: fit-content;
 }
 
-.flex .add-container {
-  background-color: var(--color-primary);
-  color: var(--color-text);
-  padding: 0.5em 1em;
-  border-radius: 0.5em;
-  border: none;
-  cursor: pointer;
-  transition: filter 0.3s ease-in-out;
-}
-
-.flex .add-container:hover {
-  filter: opacity(0.8);
-}
-
-.flex .container-count {
-  font-size: 1.5em;
-  color: var(--color-text-soft);
-}
-
-.dynamic-container {
+.filters {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(5, minmax(230px, 1fr));
-  gap: 1em;
+  grid-template-columns: 4fr 2fr;
+  column-gap: 3em;
 }
 
-.sample-container {
+.filters .filter-email, .filters .hide {
   background-color: var(--color-modal-card-background);
   border: 1px solid var(--color-modal-card-border);
-  padding: 1em;
+  padding: 0.6em 0.8em;
   border-radius: 0.5em;
-  transition: transform 0.3s ease-in-out;
+  color: var(--color-text);
+}
+
+table {
   width: 100%;
-  height: 210px;
+  border-collapse: collapse;
+  border: 1px solid var(--color-modal-card-border);
+}
+
+table th, table td {
+  padding: 0.7em 0.9em;
+  text-align: left;
+  border-bottom: 1px solid var(--color-modal-card-border);
+}
+
+button, table tbody tr td .delete {
+  width: 100%;
+  color: var(--color-text);
+  border: 1px solid var(--color-modal-card-border);
+  background-color: var(--color-modal-card-background);
+  padding: 0.4em 0;
+  border-radius: 0.5em;
+  transition: 200ms ease-in-out;
+}
+
+table tbody tr td .delete:hover {
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions .showing {
+  color: var(--color-text-soft);
+  opacity: 0.7;
+}
+
+.actions .pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.actions .pagination button {
+  padding: 0.5em 1.4em;
+}
+
+.actions .pagination button:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
 }

@@ -1,0 +1,25 @@
+
+.container {
+  max-width: 620px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.image-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.lazy-img {
+  width: 100%;
+  height: auto;
+  min-height: 220px;
+  background-color: #eee;
+  transition: opacity 0.5s ease-in;
+  opacity: 0;
+}
+
+.lazy-img.loaded {
+  opacity: 1;
+}

@@ -9,7 +9,7 @@
   - `classList`, `dataSet`, `closest`, `matches`
   - `append`, `prepend`, `replaceWith`, `remove` ✅
 * Correct use of `addEventListener` and `{ once: true }` ✅
-* `MutationObserver`, `IntersectionObserver`, `ResizeObserver`
+* `MutationObserver`, `IntersectionObserver`, `ResizeObserver` ✅
 
 > **Project:** A sortable and filterable table with thousands of records.
 

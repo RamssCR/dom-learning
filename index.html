@@ -4,17 +4,43 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="stylesheet" href="/src/style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite App</title>
 </head>
 
 <body>
   <main class="container">
-    <div class="flex">
-      <button id="add-container" class="add-container">Add Container</button>
-      <span class="container-count">0</span>
-    </div>
-    <div class="dynamic-container" id="dynamic-container"></div>
+    <section class="filters">
+      <!-- Filters -->
+      <input id="filter-email" type="text" placeholder="Filter by email" class="filter-email" />
+
+      <!-- Hidders -->
+      <select name="hide" id="hide" class="hide">
+        <option value="">Hide by</option>
+        <option value="email">Email</option>
+        <option value="amount">Amount</option>
+        <option value="status">Status</option>
+      </select>
+    </section>
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Email</th>
+          <th>Amount</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <section class="actions">
+      <p class="showing">Showing 1 to 10 of 100 entries</p>
+      <article class="pagination">
+        <button class="prev">Previous</button>
+        <button class="next">Next</button>
+      </article>
+    </section>
   </main>
   <script type="module" src="/src/main.js"></script>
 </body>

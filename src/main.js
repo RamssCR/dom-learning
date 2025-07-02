@@ -1,9 +1,10 @@
-import './style.css'
-import { addContainer, updateCounter } from './mutation'
+import { generateFakeData } from './projects/basic/data'
+import { createRow } from './projects/basic/dom'
 
-const counter = document.querySelector('.container-count')
-const button = document.querySelector('.add-container')
-const container = document.querySelector('.dynamic-container')
+const tableBody = document.querySelector('tbody')
+const data = generateFakeData()
 
-updateCounter(container, counter)
-button.addEventListener('click', () => addContainer(container))
+data.forEach(object => {
+  const row = createRow(object)
+  tableBody.appendChild(row)
+})

@@ -1,5 +1,5 @@
 // Exercise: Implementing MutationObserver to change the color of an element when a class is toggled
-import { pickRandomColor } from './utils/pickRandomColor'
+import { pickRandomColor } from '../../utils/pickRandomColor'
 
 /**
  * Changes the color of an element by using an
