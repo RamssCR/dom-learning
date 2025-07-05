@@ -1,10 +1,10 @@
+import { state } from './projects/basic/state'
 import { generateFakeData } from './projects/basic/data'
-import { createRow } from './projects/basic/dom'
+import { renderTable } from './projects/basic/dom'
+import { setupEvents } from './projects/basic/events'
 
-const tableBody = document.querySelector('tbody')
-const data = generateFakeData()
+state.data = generateFakeData(100)
+state.paginated = [...state.data]
 
-data.forEach(object => {
-  const row = createRow(object)
-  tableBody.appendChild(row)
-})
+renderTable()
+setupEvents()

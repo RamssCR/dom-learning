@@ -1,3 +1,6 @@
+import { state } from './state'
+import { calculatePaginationOffset } from '../../utils/pagination'
+
 /**
  * @import {FakeData} from './data'
  */
@@ -11,7 +14,9 @@ export const createRow = (data) => {
   const { id, ...values } = data
 
   const row = document.createElement('tr')
-  row.id = data.id
+  row.className = 'row'
+  row.id = id
+  row.dataset.id = id
 
   Object.values(values).forEach(value => {
     const cell = document.createElement('td')
@@ -19,13 +24,46 @@ export const createRow = (data) => {
     row.appendChild(cell)
   })
 
-  const cell = document.createElement('td')
+  const deleteCell = document.createElement('td')
 
   const button = document.createElement('button')
   button.className = 'delete'
   button.textContent = 'Delete'
 
-  cell.appendChild(button)
-  row.appendChild(cell)
+  deleteCell.appendChild(button)
+  row.appendChild(deleteCell)
   return row
+}
+
+export const renderTable = () => {
+  // Clean up the table
+  const tableBody = document.querySelector('tbody')
+  tableBody.innerHTML = ''
+
+  const { 
+    limit, 
+    page: currentPage, 
+    paginated, 
+    sort 
+  } = state
+
+  const sorted = [...paginated].sort((a, b) => 
+    sort === 'asc' 
+      ? a.email.localeCompare(b.email) 
+      : b.email.localeCompare(a.email)
+  )
+
+  const offset = calculatePaginationOffset(currentPage, limit)
+  const pagination = sorted.slice(offset, offset + limit)
+
+  pagination.forEach(page => {
+    const row = createRow(page)
+    tableBody.appendChild(row)
+  })
+
+  if (state.hiddenColumnIndex) {
+    const index = state.hiddenColumnIndex + 1
+    document.querySelectorAll(`td:nth-child(${index}), th:nth-child(${index})`)
+      .forEach(cell => cell.style.display = 'none')
+  }
 }

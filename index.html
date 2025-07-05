@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <main class="container">
+  <main class="container" data-current="1">
     <section class="filters">
       <!-- Filters -->
       <input id="filter-email" type="text" placeholder="Filter by email" class="filter-email" />
@@ -18,18 +18,20 @@
       <!-- Hidders -->
       <select name="hide" id="hide" class="hide">
         <option value="">Hide by</option>
-        <option value="email">Email</option>
-        <option value="amount">Amount</option>
-        <option value="status">Status</option>
+        <option value="0">Status</option>
+        <option value="1">Email</option>
+        <option value="2">Amount</option>
       </select>
     </section>
     <table>
       <thead>
         <tr>
-          <th>Status</th>
-          <th>Email</th>
-          <th>Amount</th>
-          <th>Actions</th>
+          <th id="status">Status</th>
+          <th id="email">
+            <button class="btn-sort-by-email">Email</button>
+          </th>
+          <th id="amount">Amount</th>
+          <th id="actions">Actions</th>
         </tr>
       </thead>
       <tbody></tbody>
