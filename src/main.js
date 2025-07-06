@@ -1,10 +1,15 @@
-import { state } from './projects/basic/state'
-import { generateFakeData } from './projects/basic/data'
-import { renderTable } from './projects/basic/dom'
-import { setupEvents } from './projects/basic/events'
+import { state } from './projects/basic/form/state'
+import { templates } from './projects/basic/form/dom'
+import { hydrateDOM } from './projects/basic/form/events'
 
-state.data = generateFakeData(100)
-state.paginated = [...state.data]
+export const render = () => {
+  const form = document.querySelector('form')
+  const currentTemplate = templates(state)[state.current]
+  const progress = Math.ceil(state.current / Object.keys(templates(state)).length * 100)
 
-renderTable()
-setupEvents()
+  form.replaceChild(currentTemplate(), form.childNodes[2])
+  document.querySelector('.progress').style.width = `${progress}%`
+  hydrateDOM()
+}
+
+render()

@@ -10,39 +10,12 @@
 </head>
 
 <body>
-  <main class="container" data-current="1">
-    <section class="filters">
-      <!-- Filters -->
-      <input id="filter-email" type="text" placeholder="Filter by email" class="filter-email" />
-
-      <!-- Hidders -->
-      <select name="hide" id="hide" class="hide">
-        <option value="">Hide by</option>
-        <option value="0">Status</option>
-        <option value="1">Email</option>
-        <option value="2">Amount</option>
-      </select>
-    </section>
-    <table>
-      <thead>
-        <tr>
-          <th id="status">Status</th>
-          <th id="email">
-            <button class="btn-sort-by-email">Email</button>
-          </th>
-          <th id="amount">Amount</th>
-          <th id="actions">Actions</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <section class="actions">
-      <p class="showing">Showing 1 to 10 of 100 entries</p>
-      <article class="pagination">
-        <button class="prev">Previous</button>
-        <button class="next">Next</button>
-      </article>
-    </section>
+  <main class="container">
+    <form class="multi-step-form">
+      <div class="progress-background">
+        <div class="progress"></div>
+      </div>
+    </form>
   </main>
   <script type="module" src="/src/main.js"></script>
 </body>

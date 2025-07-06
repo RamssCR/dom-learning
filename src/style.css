@@ -1,15 +1,16 @@
 :root {
   --color-background: #171717;
-  --color-text: #ece7e7;
   --color-text-soft: #b0b0b0;
-  --color-danger: #ff4d4d;
-  --color-primary: #4d00c0;
-  --color-primary-dark: #0f0126;
-  --color-success: #00a542;
-  --color-modal-background: #00000077;
-  --color-modal-card-background: #1d1d21;
-  --color-modal-card-border: #2c2c30;
   --color-input-focus: #77777a;
+  --color-form-background: #f6f6f6;
+  --color-form-text: #171717;
+  --color-form-text-soft: #4d4d4d;
+  --color-input-border: #d0d0d0;
+  --color-input-border-focus: #4d00c0;
+  --color-input-placeholder: #b0b0b0;
+  --color-input-error: #ff4d4d;
+  --color-input-success: #00a542;
+  --color-button-background: #101010;
 }
 
 * {
@@ -32,7 +33,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 2.5em 7em;
 }
 
@@ -43,91 +44,152 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.container .multi-step-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1.7em;
+  background-color: var(--color-form-background);
+  border-radius: 0.5em;
+  padding: 2em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: var(--color-form-text);
+}
+
+.container .multi-step-form .progress-background {
+  width: 100%;
+  height: 1.2em;
+  border-radius: 2em;
+  background-color: var(--color-input-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.container .multi-step-form .progress-background .progress {
+  width: 0%;
+  height: 100%;
+  background-color: var(--color-input-success);
+  border-radius: 2em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.container .multi-step-form .step, .container .multi-step-form .review {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1em;
+}
+
+.multi-step-form .step .step-title {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.multi-step-form .step .step-description {
+  font-size: 0.9em;
+  margin-top: -0.75em;
+  font-weight: 300;
+  color: var(--color-form-text-soft);
+}
+
+.multi-step-form .step .controllers {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 1em;
+}
+
+.step .controllers .group-controller {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.step .controllers .group-controller input {
+  width: 100%;
+  padding: 0.45em 0.8em;
+  border: 1px solid var(--color-input-border);
+  border-radius: 0.5em;
+  background-color: var(--color-form-background);
+  color: var(--color-form-text);
+  font-size: 1em;
+}
+
+.group-btns {
+  margin: 1em 0 0 auto;
+}
+
+.next, .send {
+  width: fit-content;
+  padding: 0.5em 1.7em;
+  border: 1px solid var(--color-button-background);
+  border-radius: 0.5em;
+  background-color: var(--color-button-background);
+  color: var(--color-form-background);
+  font-size: 1em;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
+.next:hover, .send:hover {
+  filter: opacity(0.9);
+}
+
+.next:focus, .send:focus {
+  outline-offset: 3px;
+}
+
+.prev {
+  width: fit-content;
+  padding: 0.5em 1.7em;
+  border: 1px solid var(--color-input-border);
+  border-radius: 0.5em;
+  background-color: transparent;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.prev:hover {
+  background-color: var(--color-button-background);
+  color: var(--color-form-background);
+}
+
+.prev:focus {
+  outline-offset: 3px;
+}
+
+.review-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5em;
 }
 
-.filters {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 4fr 2fr;
-  column-gap: 3em;
-}
-
-.filters .filter-email, .filters .hide {
-  background-color: var(--color-modal-card-background);
-  border: 1px solid var(--color-modal-card-border);
-  padding: 0.6em 0.8em;
-  border-radius: 0.5em;
-  color: var(--color-text);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid var(--color-modal-card-border);
-}
-
-table th, table td {
-  padding: 0.7em 0.9em;
-  text-align: left;
-  border-bottom: 1px solid var(--color-modal-card-border);
-}
-
-table th .btn-sort-by-email {
-  background-color: var(--color-background);
-  border: none;
-  cursor: pointer;
-  font-size: inherit;
+.review-title {
+  font-size: 1.3em;
   font-weight: 500;
-  width: fit-content;
-  padding: 0.3em 4em 0.3em 0.5em;
-  border-radius: 0.5em;
-  transition: 200ms ease-in-out;
+  margin-top: 0.2em;
 }
 
-table th .btn-sort-by-email:hover {
-  filter: brightness(1.2);
+.review-subtitle {
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-bottom: 0.1em;
 }
 
-button, table tbody tr td .delete {
-  width: 100%;
-  color: var(--color-text);
-  border: 1px solid var(--color-modal-card-border);
-  background-color: var(--color-modal-card-background);
-  padding: 0.4em 0;
-  border-radius: 0.5em;
-  transition: 200ms ease-in-out;
-}
-
-table tbody tr td .delete:hover {
-  background-color: var(--color-danger);
-  border-color: var(--color-danger);
-  cursor: pointer;
-}
-
-.actions {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.actions .showing {
-  color: var(--color-text-soft);
-  opacity: 0.7;
-}
-
-.actions .pagination {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-}
-
-.actions .pagination button {
-  padding: 0.5em 1.4em;
-}
-
-.actions .pagination button:hover {
-  filter: brightness(1.1);
-  cursor: pointer;
+.error {
+  color: var(--color-input-error);
+  font-size: 0.85em;
+  font-weight: 500;
+  margin-top: -0.2em;
 }

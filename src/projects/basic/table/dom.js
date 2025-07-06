@@ -1,5 +1,5 @@
 import { state } from './state'
-import { calculatePaginationOffset } from '../../utils/pagination'
+import { calculatePaginationOffset } from '../../../utils/pagination'
 
 /**
  * @import {FakeData} from './data'
