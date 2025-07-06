@@ -1,5 +1,6 @@
 export const state = {
   current: 1,
+  errors: {},
   data: {
     name: '',
     email: '',

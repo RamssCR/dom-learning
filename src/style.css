@@ -1,5 +1,5 @@
 :root {
-  --color-background: #171717;
+  --color-background: #eeeeee;
   --color-text-soft: #b0b0b0;
   --color-input-focus: #77777a;
   --color-form-background: #f6f6f6;
@@ -44,6 +44,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1em;
 }
 
 .container .multi-step-form {
@@ -51,7 +52,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 1.7em;
+  gap: 0.4em;
   background-color: var(--color-form-background);
   border-radius: 0.5em;
   padding: 2em;
@@ -85,6 +86,11 @@ body {
   flex-direction: column;
   align-items: start;
   gap: 1em;
+}
+
+.container .multi-step-form .notice {
+  font-size: 0.83em;
+  color: var(--color-form-text-soft);
 }
 
 .multi-step-form .step .step-title {
@@ -128,7 +134,7 @@ body {
   margin: 1em 0 0 auto;
 }
 
-.next, .send {
+.next, .send, .load {
   width: fit-content;
   padding: 0.5em 1.7em;
   border: 1px solid var(--color-button-background);
@@ -140,15 +146,15 @@ body {
   transition: filter 0.3s ease;
 }
 
-.next:hover, .send:hover {
+.next:hover, .send:hover, .load:hover {
   filter: opacity(0.9);
 }
 
-.next:focus, .send:focus {
+.next:focus, .send:focus, .load:focus {
   outline-offset: 3px;
 }
 
-.prev {
+.prev, .save, .reset {
   width: fit-content;
   padding: 0.5em 1.7em;
   border: 1px solid var(--color-input-border);
@@ -159,12 +165,12 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.prev:hover {
+.prev:hover, .save:hover, .reset:hover {
   background-color: var(--color-button-background);
   color: var(--color-form-background);
 }
 
-.prev:focus {
+.prev:focus, .save:focus, .reset:focus {
   outline-offset: 3px;
 }
 
@@ -192,4 +198,71 @@ body {
   font-size: 0.85em;
   font-weight: 500;
   margin-top: -0.2em;
+}
+
+.outter-buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5em;
+}
+
+.message {
+  min-width: 23em;
+  width: 100%;
+  max-width: fit-content;
+  background-color: var(--color-form-background);
+  color: var(--color-button-background);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.6em;
+  padding: 0.8em 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  align-items: start;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  animation: slideUpAndDown 5s ease-in-out;
+}
+
+@keyframes slideUpAndDown {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(-10%);
+    opacity: 1;
+  }
+  15% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-10%);
+    opacity: 1;
+  }
+  90% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.message-title {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.message-description {
+  font-size: 0.85em;
 }

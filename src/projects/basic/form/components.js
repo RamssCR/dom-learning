@@ -145,3 +145,15 @@ export const summaryTemplate = (state) => `
     </section>
   </div>
 `
+
+/**
+ * Creates a message template for displaying popup messages.
+ * @param {{ title: string, message: string }} object - The title and message for the popup.
+ * @returns {string} An HTML string representing the message template.
+ */
+export const messageTemplate = ({title, message}) => `
+  <div class="message">
+    <h4 class="message-title">${title}</h4>
+    <p class="message-description">${message}</p>
+  </div>
+`

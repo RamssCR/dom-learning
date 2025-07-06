@@ -1,8 +1,10 @@
 import {
   locationTemplate,
+  messageTemplate,
   personalTemplate,
   summaryTemplate
 } from './components'
+import { state } from './state'
 
 /**
  * Creates a step template for a multi-step form.
@@ -29,3 +31,38 @@ export const templates = (state) => ({
   2: stepTemplate(locationTemplate(state)),
   3: stepTemplate(summaryTemplate(state))
 })
+
+/**
+ * Creates an error message element for a specific form field.
+ * This function generates a new DOM element that displays an error message
+ * for a given form field identified by the provided key.
+ * @param {string} key - The key of the form field to display the error for.
+ * @return {void}
+ */
+export const createError = (key) => {
+  const errorText = document.createElement('p')
+  errorText.dataset.error = key
+  errorText.className = 'error'
+  errorText.textContent = state.errors[key]
+
+  document.querySelector(`[name="${key}"]`)
+    .closest('.group-controller')
+    .appendChild(errorText)
+}
+
+/**
+ * Displays a popup message with the given title and message.
+ * @param {{ title: string, message: string }} object - The title and message for the popup.
+ * @returns {void}
+ */
+export const popupMessage = ({ title, message }) => {
+  document.querySelector('.message')?.remove()
+  const wrapper = document.createElement('div')
+  const popup = messageTemplate({ title, message })
+  wrapper.innerHTML = popup
+  document.body.appendChild(wrapper.firstElementChild)
+  
+  document.querySelector('.message').addEventListener('animationend', () => {
+    document.querySelector('.message').remove()
+  }, { once: true })
+}
