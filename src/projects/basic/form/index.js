@@ -23,3 +23,18 @@ export const render = () => {
   document.querySelector('.progress').style.width = `${progress}%`
   hydrateDOM()
 }
+
+/*
+<main class="container">
+  <form class="multi-step-form">
+    <div class="progress-background">
+      <div class="progress"></div>
+    </div>
+    <span class="notice">* This form contains an auto-save feature.</span>
+  </form>
+  <div class="outter-buttons">
+    <button class="reset">Reset</button>
+    <button class="load">Load</button>
+  </div>
+</main>
+*/

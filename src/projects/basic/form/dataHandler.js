@@ -24,14 +24,7 @@ export const loadData = (state) => {
  * @param {typeof import('./state').state} state - The current state object containing form data and errors.
  */
 export const reset = (state) => {
-  state.data = {
-    name: '',
-    email: '',
-    phone: '',
-    city: '',
-    country: '',
-    zip: ''
-  }
+  state.data = Object.fromEntries(Object.keys(state.data).map((key) => [key, '']))
   state.errors = {}
   state.current = 1
   saveData(state)

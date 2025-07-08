@@ -11,7 +11,7 @@
 * Correct use of `addEventListener` and `{ once: true }` ✅
 * `MutationObserver`, `IntersectionObserver`, `ResizeObserver` ✅
 
-> **Project:** A sortable and filterable table with thousands of records.
+> **Project:** A sortable and filterable table with thousands of records. ✅
 
 ### 2nd Module
 * How the event loop works and `requestAnimationFrame`
