@@ -14,7 +14,7 @@
 > **Project:** A sortable and filterable table with thousands of records. ✅
 
 ### 2nd Module
-* How the event loop works and `requestAnimationFrame`
+* How the event loop works and `requestAnimationFrame` ✅
 * Reflow vs repaint
 * Lazy rendering with `requestIdleCallback`
 * Virtualization with libraries or by hand

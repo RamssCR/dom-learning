@@ -7,7 +7,7 @@ freezing when executing tasks that take time, such as:
 - Render something on screen
 - Answer to a click
 
-## Cycle: Call Stack, Microtasks Queue, Callback Queue
+## Cycle: Call Stack, Microtask Queue, Callback Queue
 ### Call Stack
 It's the direct (or synchronous) code execution, it runs immediately.
 
