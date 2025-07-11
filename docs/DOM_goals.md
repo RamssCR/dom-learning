@@ -15,7 +15,7 @@
 
 ### 2nd Module
 * How the event loop works and `requestAnimationFrame` ✅
-* Reflow vs repaint
+* Reflow vs repaint ✅
 * Lazy rendering with `requestIdleCallback`
 * Virtualization with libraries or by hand
 * Techniques like debounce or throttle

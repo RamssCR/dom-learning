@@ -46,3 +46,34 @@ body {
   justify-content: center;
   gap: 1em;
 }
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: var(--color-input-error);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.jank {
+  position: absolute;
+}
+
+.performance {
+  background-color: var(--color-input-success);
+  will-change: transform;
+}
+
+.fps {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.7);
+  color: lime;
+  font-family: monospace;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  z-index: 9999;
+  display: block;
+}

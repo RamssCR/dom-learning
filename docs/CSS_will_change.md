@@ -22,3 +22,15 @@ Use it on animated and/or interactive elements, such as:
 - Slideable Menus
 - Element with animated hover
 - Transition when scrolling
+
+## Change type and their impact
+
+| Property change                  | Reflow      | Repaint      | New Layer (composition)       |
+|----------------------------------|-------------|--------------|-------------------------------|
+| `width`, `height`                | Yes         | Yes          | No                            |
+| `color`, `background-color`      | No          | Yes          | No                            |
+| `transform`, `opacity`           | No          | Yes          | Yes (optimized)               |
+| `display`                        | Yes         | Yes          | No                            |
+| `top`, `left`, `margin`          | Yes         | Yes          | No                            |
+| `visibility`                     | No          | Yes          | No                            |
+| `box-shadow`                     | No          | Yes          | No                            |
