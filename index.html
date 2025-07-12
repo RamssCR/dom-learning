@@ -11,10 +11,14 @@
 
 <body>
   <main class="container">
-    <span class="fps">FPS: --</span>
-    <div class="box jank"></div>
-    <div class="box performance"></div>
+    <article class="input-container">
+      <div style="height: 3000px; background: linear-gradient(#fff, #ddd);"></div>
+      <p id="scrollPos" style="position: fixed; top: 0; background: #000; color: #fff; padding: 8px;">Scroll: 0</p>
+    </article>
   </main>
+  <main class="container2" style="height: 300px; width:100%; overflow-y: auto; border: 1px solid #ccc; position: relative;"></main>
+
+  <span class="fps">FPS: --</span>
   <script type="module" src="/src/main.js"></script>
 </body>
 
